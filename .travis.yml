@@ -1,16 +1,17 @@
 ---
 sudo: required
 
+env:
+  matrix:
+  - OS_TYPE=centos OS_VERSION=6
+  - OS_TYPE=centos OS_VERSION=7
+
 language: ruby
 rvm:
   - 2.2
 
 services:
   - docker
-
-env:
-  - distribution: centos
-    version: 7
 
 before_install:
   - 'sudo docker pull ${distribution}:${version}'
